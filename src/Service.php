@@ -18,7 +18,7 @@ class Service extends \think\Service
         $config = Config::get('tpUtils') + $config;
         Config::set($config, 'tpUtils');
 
-        $this->app->bind($config['provider']);
+        $this->app->bind($config);
     }
 
     /**
