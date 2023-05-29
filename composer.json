@@ -29,7 +29,7 @@
                 "Yuyue8\\TpUtils\\Service"
             ],
             "config": {
-                "thinkAdmin": "src/config/tpUtils.php"
+                "tpUtils": "src/config/tpUtils.php"
             }
         }
     }
