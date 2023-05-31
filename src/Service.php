@@ -14,9 +14,15 @@ class Service extends \think\Service
      */
     public function register()
     {
-        $config = include(__DIR__ . '/config/tpUtils.php');
-        $config = Config::get('tpUtils') + $config;
-        Config::set($config, 'tpUtils');
+        $config = include(__DIR__ . '/config/tp_config.php');
+
+        $tp_config = Config::get('tp_config');
+
+        $config = $tp_config['util_register'] + $config['util_register'];
+
+        $tp_config['util_register'] = $config;
+
+        Config::set($tp_config, 'tp_config');
 
         $this->app->bind($config);
     }

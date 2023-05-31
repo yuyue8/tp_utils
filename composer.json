@@ -29,7 +29,7 @@
                 "Yuyue8\\TpUtils\\Service"
             ],
             "config": {
-                "tpUtils": "src/config/tpUtils.php"
+                "tp_config": "src/config/tp_config.php"
             }
         }
     }
