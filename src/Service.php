@@ -18,7 +18,7 @@ class Service extends \think\Service
 
         $tp_config = Config::get('tp_config');
 
-        $config = $tp_config['util_register'] + $config['util_register'];
+        $config = ($tp_config['util_register'] ?? []) + $config['util_register'];
 
         $tp_config['util_register'] = $config;
 
