@@ -9,4 +9,5 @@ return [
     'str_util'   => \Yuyue8\TpUtils\utils\StrUtil::class,
     'date_util'  => \Yuyue8\TpUtils\utils\DateUtil::class,
     'file_util'  => \Yuyue8\TpUtils\utils\FileUtil::class,
+    'tree_util'  => \Yuyue8\TpUtils\utils\TreeUtil::class,
 ];

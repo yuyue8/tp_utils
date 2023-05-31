@@ -85,6 +85,31 @@ class StrUtil
     }
 
     /**
+     * 判断参数是否为身份证号
+     *
+     * @param string $idCardNumber
+     * @return boolean
+     */
+    public function isIdCardNumber(string $idCardNumber)
+    {
+        if (!preg_match('/^\d{17}(\d|x)$/i', $idCardNumber)) {
+            // 如果身份证号不符合18位数字或最后一位为x（大小写均可），则返回false
+            return false;
+        }
+
+        // 将身份证号前17位的数字从左到右分别乘以系数，并将乘积求和
+        $sum = 0;
+        $factors = array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
+        for ($i = 0; $i < 17; $i++) {
+            $sum += ((int) $idCardNumber[$i] * $factors[$i]);
+        }
+
+        // 根据余数得到校验码，并与身份证号的最后一位进行比较
+        $code = array('1', '0', 'x', '9', '8', '7', '6', '5', '4', '3', '2');
+        return $idCardNumber[17] == $code[$sum % 11];
+    }
+
+    /**
      * 隐藏手机号中间四位
      *
      * @param string $phone
