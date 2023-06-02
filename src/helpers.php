@@ -74,12 +74,24 @@ if (!function_exists('get_file_util')) {
 
 if (!function_exists('get_tree_util')) {
     /**
-     * 获取日期处理工具类
+     * 获取文件处理工具类
      *
      * @return \Yuyue8\TpUtils\utils\FileUtil
      */
     function get_tree_util()
     {
         return app('tree_util');
+    }
+}
+
+if (!function_exists('get_json_util')) {
+    /**
+     * 获取json输出工具类
+     *
+     * @return \Yuyue8\TpUtils\utils\JsonUtil
+     */
+    function get_json_util()
+    {
+        return app('json_util');
     }
 }
