@@ -119,4 +119,23 @@ class StrUtil
     {
         return substr($phone, 0, 3) . '****' . substr($phone, -4);
     }
+
+    /**
+     * 切分字符串并增加前缀
+     *
+     * @param string $string
+     * @param string $prefix
+     * @param string $separator
+     * @return string
+     */
+    public function splitStringAddPrefix(string $string, string $prefix, string $separator = ',') : string
+    {
+        $array = explode($separator, $string);
+
+        $array = array_map(function($item) use ($prefix) {
+            return $prefix . $item;
+        }, $array);
+
+        return implode($separator, $array);
+    }
 }
