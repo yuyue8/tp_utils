@@ -8,7 +8,7 @@ class TimeUtil
     /**
      * 字符串转为时间戳
      *
-     * @return void
+     * @return int
      */
     public function strToTimestamp($value)
     {
