@@ -141,7 +141,7 @@ class TimeUtil
             return false;
         }
 
-        if ($start_date >= $end_date) {
+        if ($start_date > $end_date) {
             return false;
         }
 
