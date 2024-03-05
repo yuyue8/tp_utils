@@ -76,7 +76,7 @@ if (!function_exists('get_tree_util')) {
     /**
      * 获取文件处理工具类
      *
-     * @return \Yuyue8\TpUtils\utils\FileUtil
+     * @return \Yuyue8\TpUtils\utils\TreeUtil
      */
     function get_tree_util()
     {
