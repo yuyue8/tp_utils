@@ -12,6 +12,18 @@ if (!function_exists('images_path')) {
     }
 }
 
+if (!function_exists('images_intact_path')) {
+    /**
+     * 获取images路径
+     *
+     * @return string
+     */
+    function images_intact_path()
+    {
+        return public_path('uploads' . DIRECTORY_SEPARATOR . 'images');
+    }
+}
+
 if (!function_exists('get_time_util')) {
     /**
      * 获取时间处理工具类

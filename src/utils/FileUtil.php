@@ -15,12 +15,12 @@ class FileUtil
      */
     public function getImagesFullPath(string $path)
     {
-        if(empty($path)){
+        if (empty($path)) {
             return [
                 'img'     => '',
                 'all_img' => ''
             ];
-        }else{
+        } else {
             $position = strpos($path, '/images');
 
             $path = images_path() . ltrim(substr($path, $position == false ? 0 : ($position + 7)), '/');
@@ -40,12 +40,15 @@ class FileUtil
      */
     public function unImagesFile(string $path)
     {
-        if(empty($path)){
+        if (empty($path)) {
             return true;
-        }else{
+        } else {
             $position = strpos($path, '/images');
+            if ($position) {
+                $path = substr($path, $position + 7);
+            }
 
-            $path = public_path() . images_path() . ltrim(substr($path, $position == false ? 0 : ($position + 7)), '/');
+            $path = images_intact_path() . ltrim($path, DIRECTORY_SEPARATOR);
 
             return is_file($path) && unlink($path);
         }
