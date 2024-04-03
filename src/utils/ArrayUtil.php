@@ -68,7 +68,7 @@ class ArrayUtil
      */
     public function jsonToArray(mixed $value): array
     {
-        if(empty($value)){
+        if (empty($value)) {
             return [];
         }
         if (is_array($value)) {
@@ -85,6 +85,29 @@ class ArrayUtil
     }
 
     /**
+     * 无重复的非负整数数组
+     *
+     * @param array $arr
+     * @return boolean
+     */
+    public function isUniqueIntegerArray(array $arr)
+    {
+        /** @var StrUtil $strUtil */
+        $strUtil = app(StrUtil::class);
+        foreach ($arr as $value) {
+            if (!$strUtil->isInteger($value)) {
+                return false;
+            }
+        }
+
+        if (count(array_unique($arr)) === count($arr)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * 验证是否为非负整数数组
      *
      * @param array $arr
@@ -95,7 +118,7 @@ class ArrayUtil
         /** @var StrUtil $strUtil */
         $strUtil = app(StrUtil::class);
         foreach ($arr as $value) {
-            if(!$strUtil->isInteger($value)){
+            if (!$strUtil->isInteger($value)) {
                 return false;
             }
         }
@@ -114,7 +137,7 @@ class ArrayUtil
         /** @var StrUtil $strUtil */
         $strUtil = app(StrUtil::class);
         foreach ($arr as $value) {
-            if(!$strUtil->isPositiveInteger($value)){
+            if (!$strUtil->isPositiveInteger($value)) {
                 return false;
             }
         }
@@ -137,7 +160,7 @@ class ArrayUtil
         /** @var StrUtil $strUtil */
         $strUtil = app(StrUtil::class);
         foreach ($arr as $value) {
-            if(!$strUtil->isPositiveInteger($value)){
+            if (!$strUtil->isPositiveInteger($value)) {
                 return false;
             }
         }
@@ -235,7 +258,7 @@ class ArrayUtil
         $start = 0;
         $start_value = 0;
         foreach ($data as $value) {
-            if(!isset($value[$field]) || !isset($value[$value_field])){
+            if (!isset($value[$field]) || !isset($value[$value_field])) {
                 return false;
             }
             if (!$strUtil->isInteger($value[$field])) {
@@ -250,13 +273,13 @@ class ArrayUtil
                     return false;
                 }
             }
-            if($value[$field] <= $start){
+            if ($value[$field] <= $start) {
                 return false;
             }
-            if($value[$value_field] < $start_value){
+            if ($value[$value_field] < $start_value) {
                 return false;
             }
-            if($is_scale && $value[$value_field] > 100){
+            if ($is_scale && $value[$value_field] > 100) {
                 return false;
             }
             $start = $value[$field];
